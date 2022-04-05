@@ -1,93 +1,95 @@
 <template>
-  <div v-if="!master.testopen" style="background-color: #fafafa">
-    <b-row class="d-flex text-center align-items-center">
-      <b-col style="margin-top: 200px">
-        <b-card class="m-4 shadow-sm" style="border: none">
-          <h3>{{ master.message }}</h3>
-        </b-card>
-      </b-col>
-    </b-row>
-  </div>
-  <div v-else id="app" style="background-color: #fafafa">
-    <Navbar />
-    <body v-if="loaded" class="mx-1" style="padding-top: 60px">
-      <template>
-        <Home v-if="state === 'home'" />
-        <Stamps v-else-if="state === 'stamps'" />
-        <Team v-else-if="state === 'team'" />
-        <Info v-else-if="state === 'info'" />
-        <Apply v-else-if="state === 'apply'" />
-      </template>
-    </body>
-    <div id="menu" class="fixed-bottom">
-      <QrReader />
-      <b-button-group size="lg" style="width: 100%; height: 80px; box-shadow: 0 -6px 15px 0 rgba(0, 0, 0, .13); border-radius: 20px 20px 0 0">
-        <b-button
-          class="menubtn col-3"
-          style="border-radius: 20px 0 0 0"
-          @click="selectMenu('home')"
-        >
-          <h6 v-if="state === 'home'" class="menuText" style="font-size: 14px">
-            <fa :icon="faHome" class="mb-1" style="margin: 0; font-size: 20px; color: #8ab72c"/><br>
-            ホーム
-          </h6>
-          <fa v-else :icon="faHome" class="iconSize-ms" style="margin: 0" />
-        </b-button>
-        <b-button
-          squared
-          class="menubtn col-3"
-          @click="selectMenu('stamps')"
-        >
-          <h6 v-if="state === 'stamps'" class="menuText" style="font-size: 14px">
-            <fa :icon="faStamp" style="transform: rotate(40deg); font-size: 19px; margin-bottom: 6px; color: #e7930f" /><br>
-            スタンプ
-          </h6>
-          <fa v-else :icon="faStamp" class="iconSize-ms" style="transform: rotate(40deg); font-size: 26px; margin-bottom: 6px" />
-        </b-button>
-<!--        <b-button-->
-<!--          squared-->
-<!--          class="menubtn col-3"-->
-<!--          @click="state='team'"-->
-<!--        >-->
-<!--          <h6 v-if="state === 'team'" class="menuText">-->
-<!--            <fa :icon="faUserFriends" class="mb-1" style="font-size: 20px; margin: 0" /><br>-->
-<!--            チーム-->
-<!--          </h6>-->
-<!--          <fa v-else :icon="faUserFriends" class="iconSize-ms" />-->
-<!--        </b-button>-->
-        <b-button
-          class="menubtn col-3"
-          squared
-          @click="selectMenu('apply')"
-        >
-          <h6 v-if="state === 'apply'" class="menuText" style="font-size: 14px">
-            <fa :icon="faGift" class="mb-1" style="font-size: 20px; margin: 0; color: #c73728" /><br>
-            応募
-          </h6>
-          <fa v-else :icon="faGift" class="iconSize-ms" />
-        </b-button>
-        <b-button
-          class="menubtn col-3"
-          @click="selectMenu('team')"
-        >
-          <h6 v-if="state === 'team'" class="menuText" style="font-size: 14px">
-            <fa :icon="faUserFriends" class="mb-1" style="font-size: 20px; margin: 0; color: #036e38" /><br>
-            チーム
-          </h6>
-          <fa v-else :icon="faUserFriends" class="iconSize-ms" />
-        </b-button>
-        <b-button
-          style="border-radius: 0 20px 0 0"
-          class="menubtn col-3"
-          @click="selectMenu('info')"
-        >
-          <h6 v-if="state === 'info'" class="menuText" style="font-size: 14px">
-            <fa :icon="faInfoCircle" class="mb-1" style="font-size: 20px; margin: 0; color: #3f82bb" /><br>
-            インフォ
-          </h6>
-          <fa v-else :icon="faInfoCircle" class="iconSize-ms" />
-        </b-button>
-      </b-button-group>
+  <div style="max-width: 800px; margin: 0 auto">
+    <div v-if="!master.testopen" style="background-color: #fafafa">
+      <b-row class="d-flex text-center align-items-center">
+        <b-col style="margin-top: 200px">
+          <b-card class="m-4 shadow-sm" style="border: none">
+            <h3>{{ master.message }}</h3>
+          </b-card>
+        </b-col>
+      </b-row>
+    </div>
+    <div v-else id="app" style="background-color: #fafafa">
+      <Navbar />
+      <body v-if="loaded" class="mx-1" style="padding-top: 60px">
+        <template>
+          <Home v-if="state === 'home'" />
+          <Stamps v-else-if="state === 'stamps'" />
+          <Team v-else-if="state === 'team'" />
+          <Info v-else-if="state === 'info'" />
+          <Apply v-else-if="state === 'apply'" />
+        </template>
+      </body>
+      <div id="menu" class="fixed-bottom">
+        <QrReader />
+        <b-button-group size="lg" style="width: 100%; height: 80px; box-shadow: 0 -6px 15px 0 rgba(0, 0, 0, .13); border-radius: 20px 20px 0 0">
+          <b-button
+            class="menubtn col-3"
+            style="border-radius: 20px 0 0 0"
+            @click="selectMenu('home')"
+          >
+            <h6 v-if="state === 'home'" class="menuText" style="font-size: 14px">
+              <fa :icon="faHome" class="mb-1" style="margin: 0; font-size: 20px; color: #8ab72c" /><br>
+              ホーム
+            </h6>
+            <fa v-else :icon="faHome" class="iconSize-ms" style="margin: 0" />
+          </b-button>
+          <b-button
+            squared
+            class="menubtn col-3"
+            @click="selectMenu('stamps')"
+          >
+            <h6 v-if="state === 'stamps'" class="menuText" style="font-size: 14px">
+              <fa :icon="faStamp" style="transform: rotate(40deg); font-size: 19px; margin-bottom: 6px; color: #e7930f" /><br>
+              スタンプ
+            </h6>
+            <fa v-else :icon="faStamp" class="iconSize-ms" style="transform: rotate(40deg); font-size: 26px; margin-bottom: 6px" />
+          </b-button>
+          <!--        <b-button-->
+          <!--          squared-->
+          <!--          class="menubtn col-3"-->
+          <!--          @click="state='team'"-->
+          <!--        >-->
+          <!--          <h6 v-if="state === 'team'" class="menuText">-->
+          <!--            <fa :icon="faUserFriends" class="mb-1" style="font-size: 20px; margin: 0" /><br>-->
+          <!--            チーム-->
+          <!--          </h6>-->
+          <!--          <fa v-else :icon="faUserFriends" class="iconSize-ms" />-->
+          <!--        </b-button>-->
+          <b-button
+            class="menubtn col-3"
+            squared
+            @click="selectMenu('apply')"
+          >
+            <h6 v-if="state === 'apply'" class="menuText" style="font-size: 14px">
+              <fa :icon="faGift" class="mb-1" style="font-size: 20px; margin: 0; color: #c73728" /><br>
+              応募
+            </h6>
+            <fa v-else :icon="faGift" class="iconSize-ms" />
+          </b-button>
+          <!--        <b-button-->
+          <!--          class="menubtn col-3"-->
+          <!--          @click="selectMenu('team')"-->
+          <!--        >-->
+          <!--          <h6 v-if="state === 'team'" class="menuText" style="font-size: 14px">-->
+          <!--            <fa :icon="faUserFriends" class="mb-1" style="font-size: 20px; margin: 0; color: #036e38" /><br>-->
+          <!--            チーム-->
+          <!--          </h6>-->
+          <!--          <fa v-else :icon="faUserFriends" class="iconSize-ms" />-->
+          <!--        </b-button>-->
+          <b-button
+            style="border-radius: 0 20px 0 0"
+            class="menubtn col-3"
+            @click="selectMenu('info')"
+          >
+            <h6 v-if="state === 'info'" class="menuText" style="font-size: 14px">
+              <fa :icon="faInfoCircle" class="mb-1" style="font-size: 20px; margin: 0; color: #3f82bb" /><br>
+              インフォ
+            </h6>
+            <fa v-else :icon="faInfoCircle" class="iconSize-ms" />
+          </b-button>
+        </b-button-group>
+      </div>
     </div>
   </div>
 </template>

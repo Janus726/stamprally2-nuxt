@@ -29,6 +29,21 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "site": "mannaka-saga2021-demo",
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ],
   "storage": {

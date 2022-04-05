@@ -6,13 +6,13 @@
           <div>
             <b-card no-body class="overflow-hidden my-3 shadow-sm" style="border: none; border-radius: 8px">
               <b-row no-gutters>
-                <b-col md="6">
+                <b-col md="6" xl="12">
                   <b-card-img src="../assets/image/title-logo.png" style="width: 100%" />
                 </b-col>
-                <b-col md="6">
+                <b-col md="6" xl="12">
                   <b-card-body>
-                    <h4>
-                      まんなか佐賀<br>ぐるっとスタンプラリー
+                    <h4 class="text-center">
+                      まんなか佐賀<br>ぐるっとスタンプラリー<br>（デモ版）
                     </h4>
                   </b-card-body>
                 </b-col>
@@ -637,6 +637,8 @@ export default {
 <style>
 #app {
   min-height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .btn-hover {
   width: 180px;

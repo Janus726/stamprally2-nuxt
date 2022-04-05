@@ -5,51 +5,51 @@
         <h3 class="mb-3">
           ホーム
         </h3>
-        <div class="mb-3">
-          <b-carousel
-            id="carousel-1"
-            v-model="slide"
-            :interval="6000"
-            controls
-            indicators
-            background="#696969"
-            img-height="35"
-            img-width="100%"
-            class="shadow-sm"
-            style="overflow: hidden; border-radius: 13px; z-index: 1; text-shadow: 1px 1px 2px #333"
-            @sliding-start="onSlideStart"
-            @sliding-end="onSlideEnd"
-          >
-            <b-carousel-slide
-              img-blank
-            >
-              <h5 @click="openModal()">コースのご案内</h5>
-            </b-carousel-slide>
-            <b-carousel-slide
-              v-for="course in recommendCourse"
-              :key="course.id"
-              img-blank
-            >
-              <h6>おすすめコース</h6>
-              <h5>{{ course[1].name }}</h5>
-            </b-carousel-slide>
-          </b-carousel>
-          <b-modal id="course" centered hide-footer>
-            <template #modal-title>
-              5つのコース
-            </template>
-            <div class="my-3 d-flex">
-              <h6>
-                「まんなか佐賀 ぐるっとスタンプラリー」は，約30箇所のスタンプがありますが、どのように回ればいいか悩んでしまう方もいるでしょう。<br>
-                そこで、テーマ別に5つのコースをご用意しました。<br><br>
-                佐賀各地の温泉や滝をまわる<h5 style="color: #3f82bb">温泉・滝めぐりコース</h5>地域特有のものに触れながらまわる<h5 style="color: #3f82bb">特産品さがしコース</h5>
-                各地の公園で自然を楽しむ<h5 style="color: #3f82bb">公園めぐりコース</h5>歴史や文化に触れられる<h5 style="color: #3f82bb">歴史すきコース</h5>
-                佐賀ならではの自然や景観を楽しむ<h5 style="color: #3f82bb">景観・体験コース</h5><br>
-                これらのコースに沿って行くもよし、自分で順番を決めてまわるのもよし、楽しみ方はさまざま。ぜひコンプリートを目指しましょう！
-              </h6>
-            </div>
-          </b-modal>
-        </div>
+<!--        <div class="mb-3">-->
+<!--          <b-carousel-->
+<!--            id="carousel-1"-->
+<!--            v-model="slide"-->
+<!--            :interval="6000"-->
+<!--            controls-->
+<!--            indicators-->
+<!--            background="#696969"-->
+<!--            img-height="35"-->
+<!--            img-width="100%"-->
+<!--            class="shadow-sm"-->
+<!--            style="overflow: hidden; border-radius: 13px; z-index: 1; text-shadow: 1px 1px 2px #333"-->
+<!--            @sliding-start="onSlideStart"-->
+<!--            @sliding-end="onSlideEnd"-->
+<!--          >-->
+<!--            <b-carousel-slide-->
+<!--              img-blank-->
+<!--            >-->
+<!--              <h5 @click="openModal()">コースのご案内</h5>-->
+<!--            </b-carousel-slide>-->
+<!--            <b-carousel-slide-->
+<!--              v-for="course in recommendCourse"-->
+<!--              :key="course.id"-->
+<!--              img-blank-->
+<!--            >-->
+<!--              <h6>おすすめコース</h6>-->
+<!--              <h5>{{ course[1].name }}</h5>-->
+<!--            </b-carousel-slide>-->
+<!--          </b-carousel>-->
+<!--          <b-modal id="course" centered hide-footer>-->
+<!--            <template #modal-title>-->
+<!--              5つのコース-->
+<!--            </template>-->
+<!--            <div class="my-3 d-flex">-->
+<!--              <h6>-->
+<!--                「まんなか佐賀 ぐるっとスタンプラリー」は，約30箇所のスタンプがありますが、どのように回ればいいか悩んでしまう方もいるでしょう。<br>-->
+<!--                そこで、テーマ別に5つのコースをご用意しました。<br><br>-->
+<!--                佐賀各地の温泉や滝をまわる<h5 style="color: #3f82bb">温泉・滝めぐりコース</h5>地域特有のものに触れながらまわる<h5 style="color: #3f82bb">特産品さがしコース</h5>-->
+<!--                各地の公園で自然を楽しむ<h5 style="color: #3f82bb">公園めぐりコース</h5>歴史や文化に触れられる<h5 style="color: #3f82bb">歴史すきコース</h5>-->
+<!--                佐賀ならではの自然や景観を楽しむ<h5 style="color: #3f82bb">景観・体験コース</h5><br>-->
+<!--                これらのコースに沿って行くもよし、自分で順番を決めてまわるのもよし、楽しみ方はさまざま。ぜひコンプリートを目指しましょう！-->
+<!--              </h6>-->
+<!--            </div>-->
+<!--          </b-modal>-->
+<!--        </div>-->
         <b-overlay
           :show="!loaded"
           variant="transparent"
@@ -268,7 +268,7 @@ export default {
   async created () {
     await this.getId()
     if (navigator.geolocation) {
-      navigator..getCurrentPosition(
+      navigator.geolocation.getCurrentPosition(
         (position) => {
           this.initialLocation = {
             lat: position.coords.latitude,
