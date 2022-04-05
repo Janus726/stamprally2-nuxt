@@ -89,6 +89,7 @@ sw.*
 # Vim swap files
 *.swp
 
+#firebase and gcp files
 plugin/firebase.js
 plugin/fcm.js
 plugin/vue2-google-maps.js
